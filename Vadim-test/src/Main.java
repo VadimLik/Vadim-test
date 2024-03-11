@@ -109,8 +109,7 @@ public class Main {
             }
             if(result < 1){
                 throw new CalculatorException("В римской системе нет отрицательных чисел или нуля");
-            }
-            if(result >= 1){
+            }else {
                 int[] massiv = {100,90,50,40,10,9,5,4,1};
                 for (Integer del : massiv){
                    while (result/del >= 1){
