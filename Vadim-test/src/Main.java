@@ -44,7 +44,7 @@ public class Main {
         try {
             x = Integer.parseInt(first);
             y = Integer.parseInt(second);
-            if( x > 0 && x < 11 && y > 0 && y < 11) {
+            if (x > 0 && x < 11 && y > 0 && y < 11) {
                 switch (sign) {
                     case "\\-":
                         itogo = Integer.toString(x - y);
@@ -59,11 +59,11 @@ public class Main {
                         itogo = Integer.toString(x / y);
                         break;
                 }
-            } else if ((x < 1 || x > 10) && (y < 1 || y > 10)){
+            } else if ((x < 1 || x > 10) && (y < 1 || y > 10)) {
                 throw new CalculatorException(" Оба числа не находятся в интервале от 1 до 10 включительно");
-            }else if (x < 1 || x > 10){
+            } else if (x < 1 || x > 10) {
                 throw new CalculatorException(" Первое число не находятся в интервале от 1 до 10 включительно");
-            }else if (y < 1 || y > 10){
+            } else if (y < 1 || y > 10) {
                 throw new CalculatorException(" Второе число не находятся в интервале от 1 до 10 включительно");
             }
         } catch (NumberFormatException e) {
@@ -74,9 +74,9 @@ public class Main {
                 }
                 if (y > 0) {
                     throw new CalculatorException("используются одновременно разные системы счисления");
-                } else if (y == 0 && ( x > 1 && x<=10 )) {
+                } else if (y == 0 && (x > 1 && x <= 10)) {
                     throw new CalculatorException("Второе число не удовлетворяет условию задания");
-                }else if(y == 0) {
+                } else if (y == 0) {
                     throw new CalculatorException("Оба числа не удовлетворяют условию задания");
                 }
             }
@@ -85,15 +85,16 @@ public class Main {
                 if (second.equals(romanNumeral.toString())) y = romanNumeral.getArabiсNumber();
             }
             try {
-                if (x > 0 && y == 0){
+                if (x > 0 && y == 0) {
                     if (Integer.parseInt(second) > 0 && Integer.parseInt(second) < 11)
-                    throw new CalculatorException("используются одновременно разные системы счисления");
-                    else throw new CalculatorException("Используются одновременно разные системы исчисления и второе число не удовлетворяет условию задания");
+                        throw new CalculatorException("используются одновременно разные системы счисления");
+                    else
+                        throw new CalculatorException("Используются одновременно разные системы исчисления и второе число не удовлетворяет условию задания");
                 }
             } catch (NumberFormatException ex) {
                 throw new CalculatorException("Второе число не удовлетворяет условию задания");
             }
-            if (x == 0 && y == 0){
+            if (x == 0 && y == 0) {
                 throw new CalculatorException("Оба числа не удовлетворяют условию задания");
             }
             if (x == 0) {
@@ -102,23 +103,41 @@ public class Main {
             if (y == 0) {
                 throw new CalculatorException("Второе число не удовлетворяет условию задания");
             }
-            if(result < 1){
+            if (result < 1) {
                 throw new CalculatorException("В римской системе нет отрицательных чисел или нуля");
             }
-            if(result >= 1){
-                int[] massiv = {100,90,50,40,10,9,5,4,1};
-                for (Integer del : massiv){
-                    while (result/del >= 1){
-                        switch (del){
-                            case 100 : itogo = itogo + "C"; break;
-                            case 90 : itogo = itogo + "XC"; break;
-                            case 50 : itogo = itogo + "L"; break;
-                            case 40 : itogo = itogo + "XL"; break;
-                            case 10 : itogo = itogo + "X"; break;
-                            case 9 : itogo = itogo + "IX"; break;
-                            case 5 : itogo = itogo + "V"; break;
-                            case 4 : itogo = itogo + "IV"; break;
-                            case 1 : itogo = itogo + "I"; break;
+            if (result >= 1) {
+                int[] massiv = {100, 90, 50, 40, 10, 9, 5, 4, 1};
+                for (Integer del : massiv) {
+                    while (result / del >= 1) {
+                        switch (del) {
+                            case 100:
+                                itogo = itogo + "C";
+                                break;
+                            case 90:
+                                itogo = itogo + "XC";
+                                break;
+                            case 50:
+                                itogo = itogo + "L";
+                                break;
+                            case 40:
+                                itogo = itogo + "XL";
+                                break;
+                            case 10:
+                                itogo = itogo + "X";
+                                break;
+                            case 9:
+                                itogo = itogo + "IX";
+                                break;
+                            case 5:
+                                itogo = itogo + "V";
+                                break;
+                            case 4:
+                                itogo = itogo + "IV";
+                                break;
+                            case 1:
+                                itogo = itogo + "I";
+                                break;
                         }
                         result = result - del;
                     }
