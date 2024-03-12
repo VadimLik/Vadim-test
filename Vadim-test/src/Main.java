@@ -96,12 +96,17 @@ public class Main {
             }
             if (x == 0 && y == 0) {
                 throw new CalculatorException("Оба числа не удовлетворяют условию задания");
-            }
-            if (x == 0) {
+            }else if (x == 0) {
                 throw new CalculatorException("Первое число не удовлетворяет условию задания");
-            }
-            if (y == 0) {
+            }else if (y == 0) {
                 throw new CalculatorException("Второе число не удовлетворяет условию задания");
+            }else {
+                switch (sign){
+                    case "\\+" : result = x + y; break;
+                    case "\\-" : result = x - y; break;
+                    case "\\*" : result = x * y; break;
+                    case "\\/" : result = x / y; break;
+                }
             }
             if (result < 1) {
                 throw new CalculatorException("В римской системе нет отрицательных чисел или нуля");
